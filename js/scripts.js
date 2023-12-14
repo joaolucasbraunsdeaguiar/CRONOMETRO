@@ -23,7 +23,7 @@ function startTimer() {
 
         if(!isPaused) {
             
-            milliseconds += 10
+            milliseconds += 10;
 
             if(milliseconds === 1000) {
                 seconds++;
@@ -35,27 +35,27 @@ function startTimer() {
                 seconds = 0;
             }
 
-            minutesEl.textContent = formatTime(minutes);
-            secondsEl.textContent = formatTime(seconds);
-            millisecondsEl.textContent = formatMilliseconds(milliseconds);
+            minutesEl.innerHTML = formatTime(minutes);
+            secondsEl.innerHTML = formatTime(seconds);
+            millisecondsEl.innerHTML = formatMilliseconds(milliseconds);
         }
 
     }, 10);
 
     startBtn.style.display = "none";
-    pauseBtn.style.display = "block";
+    pauseBtn.style.display = "inline-block";
 }
 
 function pauseTimer() {
     isPaused = true;
     pauseBtn.style.display = "none";
-    resumeBtn.style.display = "block";
+    resumeBtn.style.display = "inline-block";
 }
 
 function resumeTimer() {
     isPaused = false;
-    pauseBtn.style.display = "block";
     resumeBtn.style.display = "none";
+    pauseBtn.style.display = "inline-block";
 }
 
 function resetTimer(){
@@ -64,11 +64,13 @@ function resetTimer(){
     seconds = 0;
     milliseconds = 0;
 
-    minutesEl.textContent = "00";
-    secondsEl.textContent = "00";
-    millisecondsEl.textContent = "000";
+    isPaused = false;
 
-    startBtn.style.display = "block";
+    minutesEl.innerHTML = "00";
+    secondsEl.innerHTML = "00";
+    millisecondsEl.innerHTML = "000";
+    
+    startBtn.style.display = "inline-block";
     pauseBtn.style.display = "none";
     resumeBtn.style.display = "none";
 
